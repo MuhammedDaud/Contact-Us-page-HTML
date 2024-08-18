@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, rgb(41, 128, 185), rgb(142, 68, 173));
+            background-size: 200% 200%;
+            animation: gradientBG 10s ease infinite;
+            color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .contact-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        input[type="submit"] {
+            background: linear-gradient(45deg, rgb(46, 204, 113), rgb(39, 174, 96));
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            transition: background 0.5s;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, rgb(39, 174, 96), rgb(46, 204, 113));
+        }
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .raindrop {
+            position: absolute;
+            top: -50px;
+            width: 2px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            input, textarea {
+                font-size: 14px;
+                padding: 8px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+            input, textarea {
+                font-size: 12px;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <form action="#" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+        <div class="footer">
+            Developed by Daud
+        </div>
+    </div>
+
+    
+    <script>
+        const numDrops = 30; 
+
+        for (let i = 0; i < numDrops; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'raindrop';
+            drop.style.left = `${Math.random() * 100}vw`;
+            drop.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            drop.style.animationDelay = `${Math.random() * 2}s`;
+            document.body.appendChild(drop);
+        }
+    </script>
+</body>
+</html>
